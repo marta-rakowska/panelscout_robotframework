@@ -12,26 +12,26 @@ ${PAGEHEADER}    xpath=//*[@id="__next"]/div[1]/main/div[3]/div[1]/div/div[1]
 ${POLSKIBUTTON}    xpath=//*[(text()='Polski')]
 
 *** Test Cases ***
-Login to the system
+Change language to Polish
     Open Login Page
     Type In Email
     Type In Password
-    Click on the Submit Button
-    Click on the Polski Button
+    Click On Submit Button
+    Click On Polski Button
     [Teardown]    Close Browser
 
 
 *** Keywords ***
-Open login page
+Open Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Title Should Be    Scouts panel - sign in
-Type in email
+Type In Email
     Input Text    ${EMAILINPUT}    user07@getnada.com
-Type in password
+Type In Password
     Input Text    ${PASSWORDINPUT}    Test-1234
-Click on the Submit Button
+Click On Submit Button
     Click Element   xpath=//*[(text()= 'Sign in')]
-Click on the Polski Button
+Click On Polski Button
     Wait Until Element Is Visible    ${PAGEHEADER}
     Click Element    xpath=//*[(text()='Polski')]
     Capture Page Screenshot    alert.png

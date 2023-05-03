@@ -14,30 +14,30 @@ ${SCOUTSPANELLOGINPAGE}    xpath=//*[@id="__next"]/form/div/div[1]/h5
 
 
 *** Test Cases ***
-Login to the system
+Log out of the system
     Open Login Page
     Type In Email
     Type In Password
-    Click On The Submit Button
-    Click On The Sign Out Button
+    Click On Submit Button
+    Click On Sign Out Button
     Assert Login Page
     [Teardown]    Close Browser
 
 
 *** Keywords ***
-Open login page
+Open Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Title Should Be    Scouts panel - sign in
-Type in email
+Type In Email
     Input Text    ${EMAILINPUT}    user07@getnada.com
-Type in password
+Type In Password
     Input Text    ${PASSWORDINPUT}    Test-1234
-Click on the Submit Button
+Click On Submit Button
     Click Element   xpath=//*[(text()= 'Sign in')]
-Click on the Sign out Button
+Click On Sign out Button
     Wait Until Element Is Visible    ${PAGELOGO}
     Click Element   xpath=//*[(text()= 'Sign out')]
-Assert login page
+Assert Login Page
     Wait Until Element Is Visible    ${SCOUTSPANELLOGINPAGE}
     title should be    Scouts panel - sign in
     Capture Page Screenshot    alert.png

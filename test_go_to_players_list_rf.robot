@@ -9,30 +9,29 @@ ${SIGNINBUTTON}    xpath=//*[(text()= 'Sign in')]
 ${EMAILINPUT}    xpath=//*[@id='login']
 ${PASSWORDINPUT}    xpath=//*[@id='password']
 ${PAGELOGO}    xpath=//*[@id="__next"]/div[1]/main/div[3]/div[1]/div/div[1]
+${PAGEHEADER}    xpath=//*/header/div/div[1]/div[2]/input
+${PLAYERSLISTBUTTON}    xpath=//*[text()='Players']
+
 
 *** Test Cases ***
-Login to the system
+Login go to players list
     Open Login Page
     Type In Email
     Type In Password
-    Click On Submit Button
-    Assert Dashboard
+    Click on the Submit Button
+    Click on the Players List Button
     [Teardown]    Close Browser
 
-
 *** Keywords ***
-Open Login Page
+Open login page
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Title Should Be    Scouts panel - sign in
-Type In Email
+Type in email
     Input Text    ${EMAILINPUT}    user07@getnada.com
-Type In Password
+Type in password
     Input Text    ${PASSWORDINPUT}    Test-1234
-Click On Submit Button
+Click on the Submit Button
     Click Element   xpath=//*[(text()= 'Sign in')]
-Assert Dashboard
+Click on the Players List Button
     Wait Until Element Is Visible    ${PAGELOGO}
-    Title Should Be    Scouts panel
-    Capture Page Screenshot    alert.png
-
-
+    Click Element    ${PLAYERSLISTBUTTON}
