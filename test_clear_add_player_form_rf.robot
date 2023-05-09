@@ -23,14 +23,13 @@ ${SECONDPOSITIONINPUT}    xpath=//*[@name='secondPosition']
 ${ACHIEVEMENTSINPUT}    xpath=//*[@name='achievements']
 ${ADDLANGUAGEBUTTON}    xpath=//*/div[2]/div/div[15]/button
 ${LANGUAGEINPUT}    xpath=//*/div[15]/div/div/div/input
-${REMOVELANGUAGEBUTTON}    xpath=//*[@title='Remove language']
 ${LACZYNASPILKAINPUT}    xpath=//*[@name='webLaczy']
 ${DZIEWIECDZIESIATMINUTINPUT}    xpath=//*[@name='web90']
 ${FACEBOOKINPUT}    xpath=//*[@name='webFB']
 ${ADDLINKTOYOUTUBEBUTTON}    xpath=//*/div[2]/div/div[19]/button
 ${LINKTOYOUTUBEINPUT}    xpath=//*/form/div[2]/div/div[19]/div/div/div/input
-${REMOVELINKTOYOUTUBEBUTTON}    xpath=//*/form/div[2]/div/div[19]/div/button
 ${CLEARBUTTON}    xpath=//*[text()='Clear']
+${MAINPAGEBUTTON}    xpath=//*[text()='Main page']
 
 *** Test Cases ***
 Add a player to database
@@ -53,13 +52,13 @@ Add a player to database
     Type In Achievements
     Click On Add Language Button
     Type In Language
-    Click On Remove Language Button
     Type In Laczy Nas Pilka
     Type In 90 Minut
     Type In Facebook
     Click On Add Link To Youtube Button
     Type In Link To Youtube
     Click On Clear Button
+    Assert Add A Player Form
     [Teardown]    Close Browser
 
 *** Keywords ***
@@ -90,8 +89,6 @@ Type In Height
     Input Text    ${HEIGHTINPUT}    180
 Type In Age
     Input Text    ${AGEINPUT}    01.01.2001
-Type In Leg
-    Input Text    ${LEGINPUT}    Right leg
 Type In Club
     Input Text    ${CLUBINPUT}    FC JK
 Type In Level
@@ -106,8 +103,6 @@ Click On Add Language Button
     Click Element    ${ADDLANGUAGEBUTTON}
 Type In Language
     Input Text    ${LANGUAGEINPUT}    English
-Click On Remove Language Button
-    Click Element    ${REMOVELANGUAGEBUTTON}
 Type In Laczy Nas Pilka
     Input Text    ${LACZYNASPILKAINPUT}    www.laczynaspilka.pl/jankowalski
 Type In 90 Minut
@@ -120,3 +115,7 @@ Type In Link To Youtube
     Input Text    ${LINKTOYOUTUBEINPUT}    www.youtube.com/jankowalski
 Click On Clear Button
     Click Element    ${CLEARBUTTON}
+Assert Add A Player Form
+    Wait Until Element Is Visible    ${MAINPAGEBUTTON}
+    Title Should Be    Add player
+    Capture Page Screenshot    alert.png

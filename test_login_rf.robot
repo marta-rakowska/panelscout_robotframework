@@ -29,7 +29,7 @@ Type In Email
 Type In Password
     Input Text    ${PASSWORDINPUT}    Test-1234
 Click On Submit Button
-    Click Element   xpath=//*[(text()= 'Sign in')]
+    Click Element   ${SIGNINBUTTON}
 Assert Dashboard
     Wait Until Element Is Visible    ${PAGELOGO}
     Title Should Be    Scouts panel

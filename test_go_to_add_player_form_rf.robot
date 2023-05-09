@@ -9,7 +9,7 @@ ${SIGNINBUTTON}    xpath=//*[(text()= 'Sign in')]
 ${EMAILINPUT}    xpath=//*[@id='login']
 ${PASSWORDINPUT}    xpath=//*[@id='password']
 ${PAGELOGO}    xpath=//*[@id="__next"]/div[1]/main/div[3]/div[1]/div/div[1]
-${PAGEHEADER}    xpath=//*/form/div[1]/div/span
+${MAINPAGEBUTTON}    xpath=//*[text()='Main page']
 ${ADDPLAYERBUTTON}    xpath=//*[text()='Add player']
 
 *** Test Cases ***
@@ -37,7 +37,7 @@ Click On Add Player Button
     Wait Until Element Is Visible    ${PAGELOGO}
     Click Element    xpath=//*[text()='Add player']
 Assert Add Player Form
-    Wait Until Element Is Visible    ${PAGEHEADER}
+    Wait Until Element Is Visible    ${MAINPAGEBUTTON}
     Title Should Be    Add player
     Capture Page Screenshot    alert.png
 

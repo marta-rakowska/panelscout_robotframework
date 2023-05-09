@@ -33,10 +33,10 @@ Type In Email
 Type In Password
     Input Text    ${PASSWORDINPUT}    Test-1234
 Click On Submit Button
-    Click Element   xpath=//*[(text()= 'Sign in')]
+    Click Element   ${SIGNINBUTTON}
 Click On Sign out Button
     Wait Until Element Is Visible    ${PAGELOGO}
-    Click Element   xpath=//*[(text()= 'Sign out')]
+    Click Element   ${SIGNOUTBUTTON}
 Assert Login Page
     Wait Until Element Is Visible    ${SCOUTSPANELLOGINPAGE}
     title should be    Scouts panel - sign in

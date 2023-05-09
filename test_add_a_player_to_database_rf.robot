@@ -31,6 +31,7 @@ ${ADDLINKTOYOUTUBEBUTTON}    xpath=//*/div[2]/div/div[19]/button
 ${LINKTOYOUTUBEINPUT}    xpath=//*/form/div[2]/div/div[19]/div/div/div/input
 ${REMOVELINKTOYOUTUBEBUTTON}    xpath=//*/form/div[2]/div/div[19]/div/button
 ${SUBMITBUTTON}    xpath=//*[@type='submit']
+${MAINPAGEBUTTON}    xpath=//*[text()='Main page']
 
 *** Test Cases ***
 Add a player to database
