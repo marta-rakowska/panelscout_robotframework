@@ -62,6 +62,7 @@ Add a player to database
     Click On Add Link To Youtube Button
     Type In Link To Youtube
     Click On Submit Button
+    Assert Edit Page
     [Teardown]    Close Browser
 
 *** Keywords ***
