@@ -32,6 +32,7 @@ ${LINKTOYOUTUBEINPUT}    xpath=//*/form/div[2]/div/div[19]/div/div/div/input
 ${REMOVELINKTOYOUTUBEBUTTON}    xpath=//*/form/div[2]/div/div[19]/div/button
 ${SUBMITBUTTON}    xpath=//*[@type='submit']
 ${MAINPAGEBUTTON}    xpath=//*[text()='Main page']
+${MATCHESBUTTON}    xpath=//*/div/div/ul[2]/div[2]
 
 *** Test Cases ***
 Add a player to database
@@ -91,8 +92,6 @@ Type In Height
     Input Text    ${HEIGHTINPUT}    180
 Type In Age
     Input Text    ${AGEINPUT}    01.01.2001
-Type In Leg
-    Input Text    ${LEGINPUT}    Right leg
 Type In Club
     Input Text    ${CLUBINPUT}    FC JK
 Type In Level
@@ -121,3 +120,8 @@ Type In Link To Youtube
     Input Text    ${LINKTOYOUTUBEINPUT}    www.youtube.com/jankowalski
 Click On Submit Button
     Click Element    ${SUBMITBUTTON}
+Assert Edit Page
+    Wait Until Element Is Enabled    ${MATCHESBUTTON}
+    Title Should Be    Edit player Jan Kowalski
+    Capture Page Screenshot    alert.png
+
