@@ -27,9 +27,13 @@ ${LACZYNASPILKAINPUT}    xpath=//*[@name='webLaczy']
 ${DZIEWIECDZIESIATMINUTINPUT}    xpath=//*[@name='web90']
 ${FACEBOOKINPUT}    xpath=//*[@name='webFB']
 ${ADDLINKTOYOUTUBEBUTTON}    xpath=//*/div[2]/div/div[19]/button
-${LINKTOYOUTUBEINPUT}    xpath=//*/form/div[2]/div/div[19]/div/div/div/input
+${LINKTOYOUTUBEINPUT}    xpath=//*/div[19]/div/div/div/input
 ${CLEARBUTTON}    xpath=//*[text()='Clear']
 ${MAINPAGEBUTTON}    xpath=//*[text()='Main page']
+${LEGDROPDOWN}    xpath=//*[@id='mui-component-select-leg']
+${RIGHTLEG}    xpath=//li[1]
+${DISTRICTDROPDOWN}    xpath=//*[@id='mui-component-select-district']
+${SILESIADISTRICT}    xpath=//*[@data-value='slaskie']
 
 *** Test Cases ***
 Add a player to database
@@ -45,10 +49,12 @@ Add a player to database
     Type In Weight
     Type In Height
     Type In Age
+    Select Leg
     Type In Club
     Type In Level
     Type In Main Position
     Type In Second Position
+    Select District
     Type In Achievements
     Click On Add Language Button
     Type In Language
@@ -89,6 +95,10 @@ Type In Height
     Input Text    ${HEIGHTINPUT}    180
 Type In Age
     Input Text    ${AGEINPUT}    01.01.2001
+Select Leg
+    Click Element    ${LEGDROPDOWN}
+    Wait Until Element Is Visible    ${RIGHTLEG}
+    Click Element    ${RIGHTLEG}
 Type In Club
     Input Text    ${CLUBINPUT}    FC JK
 Type In Level
@@ -97,6 +107,10 @@ Type In Main Position
     Input Text    ${MAINPOSITIONINPUT}    goalkeeper
 Type In Second Position
     Input Text    ${SECONDPOSITIONINPUT}    defender
+Select District
+    Click Element    ${DISTRICTDROPDOWN}
+    Wait Until Element Is Visible    ${SILESIADISTRICT}
+    Click Element    ${SILESIADISTRICT}
 Type In Achievements
     Input Text    ${ACHIEVEMENTSINPUT}    no achievements
 Click On Add Language Button
